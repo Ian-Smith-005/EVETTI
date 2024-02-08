@@ -1,0 +1,48 @@
+.btn-xl {
+    padding: 1.25rem 2.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10rem;
+    background-color: black;
+    transition: all ease-in-out .6s;
+  }
+  .btn-xl:hover{
+      background-color: white;
+      color: black;
+      transition: all ease-in-out .6s;
+  }
+  
+  .page-section {
+              background-color: #fff; 
+              color: #000; 
+              padding: 80px 0;
+          }
+  
+          .page-section h2 {
+              color: #000; }
+  
+          .page-section hr.divider {
+              width: 50px;
+              border: 2px solid #000;
+              margin: 30px auto;
+          }
+  
+          .service-item {
+              animation: fadeInUp 1s ease-in-out; 
+          }
+  
+          .service-item i {
+              font-size: 3rem;
+              color: #000;
+          }
+  
+          .row [class*="col-"] {
+              padding: 15px;
+          }
+          
+
+
+
+          

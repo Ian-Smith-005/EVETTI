@@ -1,0 +1,153 @@
+*{
+    font-family: 'Nunito', sans-serif;
+}
+body {
+    padding-top: 56px; 
+
+}
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar-nav .nav-link {
+    color: #555; 
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #28a745; 
+}
+
+.search-bar {
+    margin-right: auto; 
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    color: #555; 
+    margin-right: 25px;
+}
+
+.nav-icon:hover {
+    color: #28a745;
+.nav-item{
+    margin-right: 20px;
+    text-align: center;
+}
+}
+.counter-badge {
+    position: absolute;
+    position: relative;
+right: 20px;
+    background-color: #28a745; 
+    color: #fff; 
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 0.5rem;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #00cc00; 
+    position: relative;
+}
+
+.nav-link:not(.active):hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #00cc00;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 3s ease;
+}
+
+.nav-item.active .nav-link {
+    color: #00cc00; 
+}
+
+.nav-item.active .nav-link::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #00cc00; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-link:focus {
+    outline: none;
+}
+
+
+
+.logo {
+      
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    
+  }
+.e{
+margin-right: 5px;
+}
+  .logo span {
+    display: block;
+    width: 25px;
+    height: 4px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+.logo span:nth-child(2){
+width: 20px;
+}
+header.masthead {
+padding-top: 10rem;
+padding-bottom: calc(10rem - 4.5rem);
+background: linear-gradient(to bottom, rgba(163, 158, 154, 0.8) 0%, rgba(128, 122, 117, 0.8) 100%), url("https://cdn.pixabay.com/photo/2016/06/03/17/35/shoes-1433925_640.jpg");
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: scroll;
+background-size: cover;
+}
+header.masthead h1, header.masthead .h1 {
+font-size: 2.25rem;
+}
+@media (min-width: 992px) {
+header.masthead {
+height: 100vh;
+min-height: 40rem;
+padding-top: 4.5rem;
+padding-bottom: 0;
+}
+header.masthead p {
+font-size: 1.15rem;
+}
+header.masthead h1, header.masthead .h1 {
+font-size: 3rem;
+}
+}
+@media (min-width: 1200px) {
+header.masthead h1, header.masthead .h1 {
+font-size: 3.5rem;
+}
+}

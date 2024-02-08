@@ -1,0 +1,32 @@
+    body{
+        background-color: rgb(231, 225, 218);
+    }
+    .contact input{
+        height: 40px;
+        border: none;
+        border-bottom: 2px solid black;
+        border-radius: 0;
+    }
+  .contact  input:focus {
+    outline: none !important;
+    border-bottom: 3px solid black;
+    
+  
+}
+
+    .contact textarea{
+        border: none;
+        border-bottom: 2px solid black;
+        border-radius: 0;
+    }
+    .contact{
+        background-color: whitesmoke;
+    }
+.contact .btn{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(12, 180, 0);
+}
+.contact .btn:active{
+    background-color: rgb(5, 81, 0);
+}

@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>IVETTI - SHOP</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <link rel="stylesheet" href="assests/css/footer.css">
+    <link rel="stylesheet" href="assests/css/header.css">
+    <link rel="stylesheet" href="assests/css/sections.css">
+    <link rel="stylesheet" href="assests/css/sub-items.css">
+    <link rel="stylesheet" href="assests/css/form.css">
+    <link rel="stylesheet" href="assests/css/preloader.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="assests/images/favicon/evetifav.png" type="image/x-icon">
+
+</head>
+
+<body>
+<!--PRELOADER-->
+<div class="loader-body" id="preloader-body">
+    <div id="preloader">
+        <div id="loader"></div>
+      </div>
+</div>
+<!--PRELOADER-->
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+        <div class="container">
+            <!-- Logo/Brand -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo">
+                    <div class="e">
+                      <span></span>
+                    <span></span>
+                    <span></span>
+                    </div>
+                     VETTI
+                  </div>
+            </a>
+
+            <!-- Navbar Toggle Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search Bar -->
+                <form class="form-inline my-2 my-lg-0 search-bar">
+                    <input class="form-control mr-sm-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchProducts()">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </form>
+                <div class="results-panel" id="resultsPanel">
+                    <!-- Results will be displayed here -->
+                  </div>
+                  <script>
+                    var searchInput = document.getElementById('searchInput');
+                    var resultsPanel = document.getElementById('resultsPanel');
+                    var productTitles = document.getElementsByClassName('product-title');
+                
+                    // Display placeholder message when the input is empty and focused
+                    searchInput.addEventListener('focus', function () {
+                        if (this.value.trim() === '') {
+                            resultsPanel.innerHTML = '<p>Type something to find your product.</p>';
+                            resultsPanel.style.display = 'block';
+                        }
+                    });
+                
+                    // Hide the results panel when focus is lost on the input
+                    searchInput.addEventListener('blur', function () {
+                        resultsPanel.style.display = 'none';
+                    });
+                
+                    function searchProducts() {
+                        var searchTerm = searchInput.value.toLowerCase();
+                        resultsPanel.innerHTML = ''; // Clear previous results
+                        var resultCount = 0;
+                
+                        if (searchTerm === '') {
+                            resultsPanel.innerHTML = '<p>Type something to find your product.</p>';
+                            resultsPanel.style.display = 'block';
+                            return;
+                        }
+                
+                        for (var i = 0; i < productTitles.length; i++) {
+                            var titleText = productTitles[i].innerText.toLowerCase();
+                
+                            if (titleText.includes(searchTerm)) {
+                                var resultLink = document.createElement('a');
+                                resultLink.href = '#' + productTitles[i].id;
+                                resultLink.textContent = productTitles[i].innerText;
+                                resultsPanel.appendChild(resultLink);
+                                resultCount++;
+                            }
+                        }
+                
+                        if (resultCount > 0) {
+                            resultsPanel.style.display = 'block';
+                        } else {
+                            resultsPanel.innerHTML = '<p>No matching items found.</p>';
+                            resultsPanel.style.display = 'block';
+                        }
+                    }
+                
+                    // Handle search when Enter key is pressed
+                    searchInput.addEventListener('keyup', function (event) {
+                        if (event.key === 'Enter') {
+                            searchProducts();
+                        }
+                    });
+                
+                    // Auto-search as the user types
+                    searchInput.addEventListener('input', function () {
+                        searchProducts();
+                    });
+                
+                    // Add click event listeners to product titles
+                    for (var i = 0; i < productTitles.length; i++) {
+                        productTitles[i].addEventListener('click', function () {
+                            // Remove 'clicked' class from all product titles
+                            for (var j = 0; j < productTitles.length; j++) {
+                                productTitles[j].classList.remove('clicked');
+                            }
+                
+                            // Add 'clicked' class to the clicked product title
+                            this.classList.add('clicked');
+                
+                            // Scroll smoothly to the clicked product section
+                            var targetId = this.id;
+                            var targetElement = document.getElementById(targetId);
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        });
+                    }
+                </script>
+                
+                
+<style>
+  .results-panel {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.results-panel a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.results-panel a:hover {
+  background-color: #f0f0f0;
+}
+  .product-title.clicked {
+      color: green;
+      font-weight: bold;
+    }
+</style>
+                <!-- Home and Store Links -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" id="cart-amount">  0.00</a>
+                    </li>
+                </ul>
+
+                <!-- Cart Icon -->
+                <a class="nav-icon" href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cartModal">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="counter-badge" id="product-counter">0</span>
+                </a>
+
+                <!-- User Icon -->
+                <a class="nav-icon" href="#">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+<style>
+          .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .filter-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #000f00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        .filter-btn:hover {
+            background-color: #fff;
+            color: #000f00;
+        }
+
+        .filter-btn:active {
+            transform: scale(1.05);
+        }
+
+        .filterable-content {
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            background-color: #eee;
+            transition: background-color 0.3s;
+        }
+
+        .filterable-content:hover {
+            background-color: #00cc00;
+        }
+
+@media (max-width: 767px) {
+    .filter-buttons{
+        display: none;
+    }
+}
+</style>
+<!--FIler Buttons-->
+<div class="filter-buttons">
+    <button class="filter-btn" onclick="filterItems('all')">All</button>
+<button class="filter-btn" onclick="filterItems('all')">Backpacks</button>
+<button class="filter-btn" onclick="filterItems('all')">Plain Backpacks</button>
+<button class="filter-btn" onclick="filterItems('all')">Custom Backpacks</button>
+<button class="filter-btn" onclick="filterItems('all')">Designer Backpacks</button>
+<button class="filter-btn" onclick="filterItems('all')">Jordans</button>
+<button class="filter-btn" onclick="filterItems('all')">Luis Voiutton</button>
+<button class="filter-btn" onclick="filterItems('all')">Custom LVs</button>
+<button class="filter-btn" onclick="filterItems('all')">Designer LVs</button>
+<button class="filter-btn" onclick="filterItems('all')">Custom Jordans</button>
+<button class="filter-btn" onclick="filterItems('all')">Designer Jordans</button>
+<button class="filter-btn" onclick="filterItems('all')">Hoodies</button>
+<button class="filter-btn" onclick="filterItems('all')">Custom Hoodies</button>
+<button class="filter-btn" onclick="filterItems('all')">Designer Hoodies</button>
+</div>
+
+<!--bootstrap popupmodal-->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- Product Information -->
+            <div class="product-details">k
+                <div class="product-title"></div>
+                <div class="product-category"></div>
+                <div class="product-thumb"></div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" id="minusBtn">-</button>
+                    </div>
+                    <input type="text" class="form-control text-center" id="quantityInput" value="1" disabled>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="plusBtn">+</button>
+                    </div>
+                </div>
+                <div class="product-price"></div>
+                <div class="total-amount">Total: KSH <span id="totalAmount"></span></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+<!--bootstrap popupmodal-->
+
+<script>
+  // Function to populate modal with product details
+  function populateModal(button) {
+      var productCard = $(button).closest('.product-card');
+      var modal = $('#productModal');
+
+      modal.find('.product-title').text(productCard.find('.product-title').text());
+      modal.find('.product-category').text(productCard.find('.product-category a').text());
+      modal.find('.product-thumb').html(productCard.find('.product-thumb').html());
+      modal.find('#quantityInput').val(1);
+      modal.find('.product-price').text(productCard.find('#unit-price').text());
+      updateTotalAmount(modal);
+  }
+
+  // Function to update total amount based on quantity
+  function updateTotalAmount(modal) {
+      var quantity = parseInt(modal.find('#quantityInput').val());
+      var price = parseFloat(modal.find('.product-price').text().replace('KSH', '').trim());
+      var totalAmount = quantity * price;
+      modal.find('#totalAmount').text(totalAmount.toFixed(2));
+  }
+
+  // Event Listeners
+  $('#plusBtn').click(function () {
+      var modal = $('#productModal');
+      var quantityInput = modal.find('#quantityInput');
+      var quantity = parseInt(quantityInput.val()) + 1;
+      quantityInput.val(quantity);
+      updateTotalAmount(modal);
+  });
+
+  $('#minusBtn').click(function () {
+      var modal = $('#productModal');
+      var quantityInput = modal.find('#quantityInput');
+      var quantity = parseInt(quantityInput.val()) - 1;
+      if (quantity >= 1) {
+          quantityInput.val(quantity);
+          updateTotalAmount(modal);
+      }
+  });
+
+  $('#addToCartBtn').click(function () {
+      // Implement your add to cart logic here
+      // For demonstration purposes, just close the modal
+      $('#productModal').modal('hide');
+  });
+
+  // Show Modal on Button Click
+  function showProductModal(button) {
+      populateModal(button);
+      $('#productModal').modal('show');
+  }
+
+  // Hide Modal on Close
+  $('#productModal').on('hidden.bs.modal', function () {
+      // Reset modal content on close
+      var modal = $(this);
+      modal.find('.product-title').text('');
+      modal.find('.product-category').text('');
+      modal.find('.product-thumb').html('');
+      modal.find('#quantityInput').val(1);
+      modal.find('.product-price').text('');
+      modal.find('#totalAmount').text('');
+  });
+
+  // Function to close modal using buttons and "x" button
+  function closeProductModal() {
+      $('#productModal').modal('hide');
+  }
+</script>
+
+
+<!--Prodcut Container-->
+<div class="container-fluid mt-50">
+
+    <div class="row">
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+
+
+
+    </div>
+  
+    
+  
+  </div>
+<style>
+    body{
+
+background-color: #eee;
+}
+
+.mt-50{
+margin-top:50px;
+}
+
+.product-card {
+display: block;
+position: relative;
+width: 100%;
+border: 1px solid #e5e5e5;
+border-radius: 5px;
+background-color: #fff;
+border-radius: 10px;
+}
+
+.mb-30 {
+margin-bottom: 30px !important;
+}
+
+.product-badge {
+position: absolute;
+height: 24px;
+padding: 0 14px;
+border-radius: 3px;
+color: #fff !important;
+font-size: 12px;
+font-weight: 400;
+letter-spacing: .025em;
+line-height: 24px;
+white-space: nowrap;
+top: 12px;
+left: 12px;
+}
+
+
+.bg-secondary {
+background-color: #dc3545  !important;
+}
+
+.bg-success {
+background-color: #21bd4a  !important;
+}
+
+
+
+
+.product-thumb>img {
+display: block;
+width: 95%;
+height: 500px;
+padding: 14px;
+margin: 0 auto;
+}
+
+
+.product-category {
+width: 100%;
+margin-bottom: 6px;
+font-size: 12px;
+}
+
+.product-card-body {
+padding: 18px;
+padding-top: 15px;
+text-align: center;
+}
+
+.product-category>a {
+transition: color .2s;
+color: #999;
+text-decoration: none;
+}
+
+
+.product-title {
+margin-bottom: 18px;
+font-size: 16px;
+font-weight: normal;
+}
+
+.product-title>a {
+transition: color .3s;
+color: #232323;
+text-decoration: none;
+}
+
+.product-price {
+display: inline-block;
+margin-bottom: 10px;
+padding: 9px 15px;
+border-radius: 4px;
+background-color: #000f00;
+color: #ffffff;
+font-size: 16px;
+font-weight: normal;
+text-align: center;
+cursor: pointer;
+}
+
+
+.product-button-group {
+display: table;
+width: 100%;
+border-top: 1px solid #e5e5e5;
+table-layout: fixed;
+}
+
+.product-button-group a:hover{
+color: #000f00;
+}
+
+
+
+
+.product-button:first-child {
+border-bottom-left-radius: 5px;
+}
+
+
+.product-button {
+display: table-cell;
+position: relative;
+height: 62px;
+padding: 10px;
+transition: background-color .3s;
+border: 0;
+border-right: 1px solid #e5e5e5;
+background: none;
+color: #505050;
+overflow: hidden;
+vertical-align: middle;
+text-align: center;
+text-decoration: none;
+}
+
+.product-button:hover>span {
+-webkit-transform: translateY(0);
+-ms-transform: translateY(0);
+transform: translateY(0);
+opacity: 1;
+}
+
+.product-button>span {
+display: block;
+position: absolute;
+bottom: 9px;
+left: 0;
+width: 100%;
+-webkit-transform: translateY(12px);
+-ms-transform: translateY(12px);
+transform: translateY(12px);
+font-size: 12px;
+white-space: nowrap;
+opacity: 0;
+}
+
+.product-button>i, .product-button>span {
+transition: all .3s; 
+}
+
+.product-button>i {
+display: inline-block;
+position: relative;
+margin-top: 5px;
+font-size: 18px;
+}
+
+.product-button:hover>i {
+-webkit-transform: translateY(-10px);
+-ms-transform: translateY(-10px);
+transform: translateY(-10px);
+}
+
+
+@media (max-width: 767px) {
+  .product-thumb > img {
+    height: 100%;
+  }
+}
+
+/*modal*/
+#form1{
+  text-align: center;
+}
+.black-btn{
+  background-color: #000f00;
+}
+.black-btn:hover{
+  background-color: #000f00;
+}
+.black-btn:active{
+  background-color: #737373;
+}
+.btn-close{
+  background:none;
+  border: none;
+  color: black;
+  float: left;
+}
+
+.adds, .minus{
+  background-color: #000f00;
+}
+.adds:focus,
+.minus:focus{
+  background-color: #737373;
+}
+</style>  
+<!--Prodcut Container-->
+<!--cat-->
+<!-- Button to trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+
+          <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+
+          <div class="modal-body">
+              <!-- Your cart content here -->
+<section class="h-100 gradient-custom">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center my-4">
+      <div class="col-md-8">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Cart - <span id="counter-items">0</span> items</h5>
+          </div>
+          <div class="card-body">
+            <!-- Single item -->
+            <div class="row">
+              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                <!-- Image -->
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+                    class="w-100" alt="Blue Jeans Jacket" />
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                  </a>
+                </div>
+                <!-- Image -->
+              </div>
+
+              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                <!-- Data -->
+                <p><strong>Blue denim shirt</strong></p>
+                <p>Color: blue</p>
+                <p>Size: M</p>
+                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                  title="Remove item">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                  title="Move to the wish list">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <!-- Data -->
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <!-- Quantity -->
+                <div class="d-flex mb-4" style="max-width: 300px">
+                  <button class="btn btn-primary px-3 me-2 minus"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                    <i class="fas fa-minus"></i>
+                  </button>
+
+                  <div class="form-outline">
+                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" disabled/>
+                  </div>
+
+                  <button class="btn btn-primary px-3 ms-2 adds"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- Quantity -->
+
+                <!-- Price -->
+                <p class="text-start text-md-center">
+                  <strong>$17.99</strong>
+                </p>
+                <!-- Price -->
+              </div>
+            </div>
+            <!-- Single item -->
+
+           
+
+            <!-- Single item -->
+            <div class="row">
+              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                <!-- Image -->
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
+                    class="w-100" />
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                  </a>
+                </div>
+                <!-- Image -->
+              </div>
+
+              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                <!-- Data -->
+                <p><strong>Red hoodie</strong></p>
+                <p>Color: red</p>
+                <p>Size: M</p>
+
+                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                  title="Remove item">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                  title="Move to the wish list">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <!-- Data -->
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <!-- Quantity -->
+                <div class="d-flex mb-4" style="max-width: 300px">
+                  <button class="btn btn-primary px-3 me-2 minus"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                    <i class="fas fa-minus"></i>
+                  </button>
+
+                  <div class="form-outline">
+                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" disabled/>
+                  </div>
+
+                  <button class="btn btn-primary px-3 ms-2 adds"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- Quantity -->
+
+                <!-- Price -->
+                <p class="text-start text-md-center">
+                  <strong>$17.99</strong>
+                </p>
+                <!-- Price -->
+              </div>
+            </div>
+            <!-- Single item -->
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body">
+          
+              <div class="card mb-4">
+                <div class="card-header py-3">
+                  <h5 class="mb-0">Summary</h5>
+                </div>
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                      Products
+                      <span>$53.98</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                      Shipping
+                      <span>Gratis</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                      <div>
+                        <strong>Total amount</strong>
+                        <strong>
+                          <p class="mb-0">(including VAT)</p>
+                        </strong>
+                      </div>
+                      <span><strong>$53.98</strong></span>
+                    </li>
+                  </ul>
+      
+                  <button type="button" class="btn btn-primary btn-lg btn-block black-btn">
+                    Go to checkout
+                  </button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+          </div>
+
+      </div>
+  </div>
+</div>
+<script>
+  // Function to save cart data to localStorage
+function saveCartToStorage() {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}
+
+// Function to load cart data from localStorage
+function loadCartFromStorage() {
+    try {
+        var storedCartItems = localStorage.getItem("cartItems");
+        if (storedCartItems) {
+            cartItems = JSON.parse(storedCartItems);
+            updateCart();
+        }
+    } catch (error) {
+        console.error("Error loading cart from localStorage:", error);
+    }
+}
+
+var cartItems = [];
+
+// Function to count the number of products in the cart
+function countProductsInCart() {
+    var productCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+    // Display the product count in the header
+    var productCountElement = document.getElementById("product-counter");
+    productCountElement.textContent = productCount;
+
+    // Update the cart amount in the header
+    var cartAmountElement = document.getElementById("cart-amount");
+    var totalAmount = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    cartAmountElement.textContent = `KSH ${totalAmount.toFixed(2)}`;
+}
+
+// Call the function to initially display the product count
+countProductsInCart();
+
+// Update the cart and product count whenever the cart changes
+function updateCart() {
+    var cartDiv = document.querySelector(".cart");
+    var subtotal = 0;
+
+    // Clear the cart
+    cartDiv.innerHTML = "";
+
+    // Iterate through the cart items
+    cartItems.forEach(function (item, index) {
+        var cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+
+    
+        function updateCart() {
+    var cartDiv = document.querySelector(".cart");
+    var subtotal = 0;
+
+    // Clear the cart
+    cartDiv.innerHTML = "";
+
+    // Iterate through the cart items
+    cartItems.forEach(function (item, index) {
+        var cartItem = document.createElement("div");
+        cartItem.classList.add("row", "mb-4");
+
+        cartItem.innerHTML = `
+            <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                    <img src="${item.image}" class="w-100" alt="${item.title}" />
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                <p><strong>${item.title}</strong></p>
+                <p>Color: ${item.color}</p>
+                <p>Size: ${item.size}</p>
+                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item" onclick="removeCartItem(${index})">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip" title="Move to the wish list" onclick="moveToWishlist(${index})">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <div class="d-flex mb-4" style="max-width: 300px">
+                    <button class="btn btn-primary px-3 me-2 minus" onclick="decreaseQuantity(${index}, ${item.price})">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <div class="form-outline">
+                        <input id="form1" min="0" name="quantity" value="${item.quantity}" type="number" class="form-control" disabled />
+                    </div>
+                    <button class="btn btn-primary px-3 ms-2 adds" onclick="increaseQuantity(${index}, ${item.price})">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <p class="text-start text-md-center">
+                    <strong>${item.currency} ${(item.price * item.quantity).toFixed(2)}</strong>
+                </p>
+            </div>
+        `;
+
+        cartDiv.appendChild(cartItem);
+        subtotal += item.price * item.quantity;
+    });
+
+    // ... (rest of the code remains unchanged)
+}
+
+        ;
+
+        cartDiv.appendChild(cartItem);
+        subtotal += item.price * item.quantity;
+    });
+
+    // Update the subtotal, tax, total, and checkout button
+    var subtotalElement = document.getElementById("subtotal");
+    var totalElement = document.getElementById("total");
+    var checkoutAmount = document.getElementById("check-amt");
+    var outputPriceElement = document.getElementById("output_price");
+
+    var tax = 200; // Assuming a 6% tax rate
+    var total = subtotal + tax;
+
+    subtotalElement.textContent = `KSH ${subtotal.toFixed(2)}`;
+    totalElement.textContent = `KSH ${total.toFixed(2)}`;
+    checkoutAmount.textContent = `KSH ${total.toFixed(2)}`;
+    outputPriceElement.textContent = `${total.toFixed(2)}`;
+
+    // Save the cart data to localStorage
+    saveCartToStorage();
+
+    // Call the product counter function to update the product count in the header
+    countProductsInCart();
+}
+
+// Function to toggle the visibility of a cart item
+function toggleCartItem(index) {
+    // Remove the product from the cartItems array
+    cartItems.splice(index, 1);
+    // Update the cart display
+    updateCart();
+}
+
+// Function to add a product to the cart
+function addToCart(button) {
+    var productDetails = button.closest('.product-card');
+    var title = productDetails.querySelector(".product-title a").textContent;
+    var description = productDetails.querySelector(".product-category a").textContent;
+    var price = parseFloat(productDetails.querySelector(".product-price .unit-price").textContent);
+    var currency = "KSH"; // Assuming currency is always KSH
+    var image = productDetails.querySelector(".product-thumb img").src;
+
+    // Get the selected quantity, default to 1 if no quantity is selected
+    var selectedQuantity = 1; // You might want to modify this based on your actual quantity logic
+
+    var existingItemIndex = cartItems.findIndex(item => item.title === title);
+
+    if (existingItemIndex !== -1) {
+        cartItems[existingItemIndex].quantity += selectedQuantity; // Add the selected quantity
+    } else {
+        cartItems.push({
+            title: title,
+            description: description,
+            price: price,
+            quantity: selectedQuantity, // Set the quantity to the selected quantity
+            currency: currency,
+            image: image
+        });
+    }
+
+    // Update the cart and product count
+    updateCart();
+}
+
+// Function to increase quantity
+function increaseQuantity(index) {
+    if (index >= 0 && index < cartItems.length) {
+        cartItems[index].quantity++;
+    }
+
+    // Update the cart and product count
+    updateCart();
+}
+
+// Function to decrease quantity
+function decreaseQuantity(index) {
+    if (index >= 0 && index < cartItems.length && cartItems[index].quantity > 1) {
+        cartItems[index].quantity--;
+    }
+
+    // Update the cart and product count
+    updateCart();
+}
+
+// Function to select quantity
+function selectPrice(span) {
+    var selectedQuantity = parseInt(span.textContent);
+    var priceSpan = span.closest('.product-card').querySelector(".product-price .price");
+    var price = parseFloat(priceSpan.textContent);
+    var currencySpan = span.closest('.product-card').querySelector(".product-price");
+    var currency = "KSH"; // Assuming currency is always KSH
+
+    // Set the selected quantity
+    var selectedQuantitySpan = span.closest('.product-card').querySelector(".selected-quantity");
+    selectedQuantitySpan.textContent = selectedQuantity;
+
+    // Update the total price
+    var totalSpan = span.closest('.product-card').querySelector(".total-price");
+    var totalPrice = selectedQuantity * price;
+    totalSpan.textContent = `${currency} ${totalPrice.toFixed(2)}`;
+}
+
+// Load cart data from localStorage on page load
+loadCartFromStorage();
+
+// Initialize the cart
+updateCart();
+
+</script>
+<!--FIler Buttons-->
+    <!--contact-->
+    <div class="contact">
+        <div class="container mt-5">
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <h2 class="text-center mb-4">Contact Us</h2>
+                <form>
+                  <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        
+                <div class="mt-4">
+                  <h4>Contact Information</h4>
+                  <p><i class="fas fa-map-marker-alt"></i> 123 Street, City, Country</p>
+                  <p><i class="fas fa-envelope"></i> <a href="mailto:info@example.com">info@example.com</a></p>
+                  <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+   
+    <!--contact-->
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="row justify-content-around mb-0 pt-5 mx-4">
+            <div class="col-xl-2 col-md-4 order-xl-1 order-4 mr-xl-0 my-auto">
+                <ul class="list-unstyled mt-md-3 mt-5">
+                    <li>Social Media</li>
+                    <li class="social">
+                        <span><i class="fa fa-facebook" aria-hidden="true"></i></span>
+                        <span><i class="fa fa-instagram" aria-hidden="true"></i></span>
+                        <span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                    </li>
+                </ul>
+                <ul class="list-unstyled my-xl-4 my-md-3">
+                    <li>Copyright</li>
+                    <li>&#9400; Nutrition 2019</li>
+                </ul>
+            </div>
+            <div class="col-xl-2 col-md-2 pt-4 order-1">
+                <ul class="list-unstyled">
+                    <li class="mt-md-0 mt-4">Our Solution</li>
+                    <li>Intergrated Security </li>
+                    <li>Core Features</li>
+                    <li>Product Features</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+            <div class="col-xl-2 col-md-2 pt-4 order-2">
+                <ul class="list-unstyled">
+                    <li class="mt-md-0 mt-4">Your needs</li>
+                    <li>Intergrated Security </li>
+                    <li>Core Features</li>
+                    <li>Product Features</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+            <div class="col-xl-auto col-md-2 pt-4 order-md-3 order-sm-1">
+                <ul class="list-unstyled">
+                    <li class="mt-md-0 mt-4">Offer</li>
+                    <li>Intergrated Security </li>
+                    <li>Core Features</li>
+                    <li>Product Features</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+            <div class="col-xl-auto col-md-6 col-12 pt-4 my-sm-0 order-6">
+                <div class="form-group">
+                    <label for="email" class="mb-3"><b>Subscribe to our newsletter and Get 10% off</b></label>
+                    <input type="email" class="form-control form-control-lg" placeholder="Enter email" id="email">
+                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block my-2 Subscribe mt-4 mb-3">Subscribe</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/f3068f95b3.js" crossorigin="anonymous"></script>
+<script src="assests/js/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+

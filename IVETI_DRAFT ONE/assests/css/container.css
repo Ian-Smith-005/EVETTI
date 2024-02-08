@@ -67,6 +67,8 @@ font-size: 12px;
 padding: 18px;
 padding-top: 15px;
 text-align: center;
+max-height: 700px;
+overflow: scroll;
 }
 
 .product-category>a {

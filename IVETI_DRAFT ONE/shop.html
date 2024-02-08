@@ -138,7 +138,7 @@ aria-hidden="true">
         </div>
         <div class="modal-body">
             <!-- Product Information -->
-            <div class="product-details">k
+            <div class="product-details">
                 <div class="product-title"></div>
                 <div class="product-category"></div>
                 <div class="product-thumb"></div>
@@ -156,7 +156,7 @@ aria-hidden="true">
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+            <button type="button" class="btn btn-primary" id="addToCartBtn" onclick="addToCart(this)">Add to Cart</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
     </div>
@@ -183,7 +183,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)" ><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -200,7 +200,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -217,7 +217,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -234,7 +234,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -250,7 +250,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -267,7 +267,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -284,7 +284,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -301,75 +301,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
-            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-2">
-        <div class="product-card mb-30">
-          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
-          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
-            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
-            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
-          </div>
-          <div class="product-button-group">
-            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
-            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-2">
-        <div class="product-card mb-30">
-          <div class="product-badge bg-success border-default text-body">10% OFF</div>
-          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
-            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
-            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
-          </div>
-          <div class="product-button-group">
-            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
-            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-2">
-        <div class="product-card mb-30">
-          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
-          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
-            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
-            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
-          </div>
-          <div class="product-button-group">
-            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
-            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-md-2">
-        <div class="product-card mb-30">
-          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
-          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
-          <div class="product-card-body">
-            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
-            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
-            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
-          </div>
-          <div class="product-button-group">
-            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -386,7 +318,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -403,7 +335,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -420,7 +352,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -437,7 +369,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -454,7 +386,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -471,7 +403,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -488,7 +420,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -505,7 +437,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -522,7 +454,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -539,7 +471,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -556,7 +488,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -573,7 +505,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -590,7 +522,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -607,7 +539,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -624,7 +556,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -641,7 +573,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -658,7 +590,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -675,7 +607,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -692,7 +624,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -709,7 +641,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -726,7 +658,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -743,7 +675,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -760,7 +692,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -777,7 +709,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -794,7 +726,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -811,7 +743,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -828,7 +760,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -845,7 +777,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -862,7 +794,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -879,7 +811,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -896,7 +828,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -913,7 +845,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -930,7 +862,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -947,7 +879,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -964,7 +896,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -981,7 +913,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -998,7 +930,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1015,7 +947,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1032,7 +964,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1049,7 +981,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1066,7 +998,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1083,7 +1015,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1100,7 +1032,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1117,7 +1049,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1134,7 +1066,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1151,7 +1083,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1168,7 +1100,7 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1185,7 +1117,75 @@ aria-hidden="true">
           </div>
           <div class="product-button-group">
             <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
-            <a class="product-button btn-Add to cart" href="#" data-abc="true"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2020</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-success border-default text-body">10% OFF</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://img.freepik.com/premium-photo/mockup-blank-black-hoodie-background_618582-663.jpg?size=626&ext=jpg&ga=GA1.2.1905767093.1705050632&semt=ais" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Custom Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">620</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://jukan.shop/cdn/shop/products/272970945_456039069545923_2908035445360800710_n_1024x1024@2x.jpg?v=1645602398" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Designer Hoodies</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">753</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
+            <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="product-card mb-30">
+          <div class="product-badge bg-secondary border-default text-body">Out of stock</div>
+          <a class="product-thumb" href="#" data-abc="true"><img src="https://cdn.pixabay.com/photo/2021/02/03/21/17/sneakers-5979353_640.jpg" alt="Product"></a>
+          <div class="product-card-body">
+            <div class="product-category"><a href="#" data-abc="true">Merch</a></div>
+            <h3 class="product-title"><a href="#" data-abc="true">Sneakers</a></h3>
+            <h4 class="product-price">KSH <span class="price" id="unit-price">2000</span></h4>
+          </div>
+          <div class="product-button-group">
+            <a class="product-button btn-wishlist" href="#" data-abc="true"><i class="fa-regular fa-heart"></i><span>Wishlist</span></a>
+            <a class="product-button btn-Add to cart" href="#" data-abc="true" onclick="addToCart(this)"><i class="fa-brands fa-opencart"></i><span>Add to cart</span></a>
             <a class="product-button" data-abc="true" onclick="showProductModal(this)"><i class="fa fa-angle-right"></i><span>Details</span></a>
           </div>
         </div>
@@ -1224,64 +1224,9 @@ aria-hidden="true">
           <div class="card-header py-3">
             <h5 class="mb-0">Cart - <span id="counter-items">0</span> items</h5>
           </div>
-          <div class="card-body">
-            <!-- Single item -->
-            <div class="row">
-              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                <!-- Image -->
-                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
-                    class="w-100" alt="Blue Jeans Jacket" />
-                  <a href="#!">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
-                  </a>
-                </div>
-                <!-- Image -->
-              </div>
-
-              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                <!-- Data -->
-                <p><strong>Blue denim shirt</strong></p>
-                <p>Color: blue</p>
-                <p>Size: M</p>
-                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
-                  title="Remove item">
-                  <i class="fas fa-trash"></i>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
-                  title="Move to the wish list">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <!-- Data -->
-              </div>
-
-              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <!-- Quantity -->
-                <div class="d-flex mb-4" style="max-width: 300px">
-                  <button class="btn btn-primary px-3 me-2 minus"
-                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                    <i class="fas fa-minus"></i>
-                  </button>
-
-                  <div class="form-outline">
-                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" disabled/>
-                  </div>
-
-                  <button class="btn btn-primary px-3 ms-2 adds"
-                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                    <i class="fas fa-plus"></i>
-                  </button>
-                </div>
-                <!-- Quantity -->
-
-                <!-- Price -->
-                <p class="text-start text-md-center">
-                  <strong>$17.99</strong>
-                </p>
-                <!-- Price -->
-              </div>
-            </div>
-            <!-- Single item -->
+          <div class="card-body" id="cart-container">
+           <!--THESE AE DYNAMIC-->
+           <!--THESE AE DYNAMIC-->
 
           </div>
         </div>
@@ -1297,11 +1242,11 @@ aria-hidden="true">
                     <li
                       class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                       Products
-                      <span>$53.98</span>
+                      <span id="sub-total">KSH 0.00</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                       Shipping
-                      <span>Gratis</span>
+                      <span id="shipping">KSH 0.00</span>
                     </li>
                     <li
                       class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
@@ -1311,12 +1256,14 @@ aria-hidden="true">
                           <p class="mb-0">(including VAT)</p>
                         </strong>
                       </div>
-                      <span><strong>$53.98</strong></span>
+                      <span id="total-amount"><strong>KSH 0.00</strong></span>
                     </li>
                   </ul>
       
                   <button type="button" class="btn btn-primary btn-lg btn-block black-btn">
+                    <a href="checkoout.html">
                     Go to checkout
+                    </a>
                   </button>
                 </div>
               </div>
@@ -1432,6 +1379,7 @@ aria-hidden="true">
 <script src="assests/js/cart.js"></script>
 <script src="assests/js/modal.js"></script>
 <script src="assests/js/search.js"></script>
+<script src="assests/js/hastag-links.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </body>

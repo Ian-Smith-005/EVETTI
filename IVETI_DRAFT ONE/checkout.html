@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>IVETTI - HOME</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <link rel="stylesheet" href="assests/css/footer.css">
+    <link rel="stylesheet" href="assests/css/header.css">
+    <link rel="stylesheet" href="assests/css/sections.css">
+    <link rel="stylesheet" href="assests/css/sub-items.css">
+    <link rel="stylesheet" href="assests/css/form.css">
+    <link rel="stylesheet" href="assests/css/preloader.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="assests/images/favicon/evetifav.png" type="image/x-icon">
+
+</head>
+
+<body>
+<!--PRELOADER-->
+<div class="loader-body" id="preloader-body">
+    <div id="preloader">
+        <div id="loader"></div>
+      </div>
+</div>
+<!--PRELOADER-->
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+        <div class="container">
+            <!-- Logo/Brand -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo">
+                    <div class="e">
+                      <span></span>
+                    <span></span>
+                    <span></span>
+                    </div>
+                     VETTI
+                  </div>
+            </a>
+
+            <!-- Navbar Toggle Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search Bar -->
+                <form class="form-inline my-2 my-lg-0 search-bar">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                            class="fas fa-search"></i></button>
+                </form>
+
+                <!-- Home and Store Links -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="total-price">KSH 0.00</a>
+                    </li>
+                </ul>
+
+                <!-- Cart Icon -->
+                <a class="nav-icon" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="counter-badge" id="product-counter">0</span>
+                </a>
+                <!--whishlist-->
+                <a class="nav-icon" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#wishlistModal">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="counter-badge" id="wishlist-counter">0</span>
+                </a>
+                <!-- User Icon -->
+                <a class="nav-icon" href="#">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+
+
+    <!-- Services Section -->
+    <section class="page-section" id="services">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0">At Your Service</h2>
+            <hr class="divider" />
+            <div class="row gx-4 gx-lg-5">
+
+                <!-- Service Item 1 -->
+                <div class="col-lg-3 col-md-6 text-center service-item animate__animated animate__fadeIn">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="fas fa-gem"></i></div>
+                        <h3 class="h4 mb-2">Sturdy Themes</h3>
+                        <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                    </div>
+                </div>
+
+                <!-- Service Item 2 -->
+                <div class="col-lg-3 col-md-6 text-center service-item animate__animated animate__fadeIn">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="fas fa-laptop"></i></div>
+                        <h3 class="h4 mb-2">Up to Date</h3>
+                        <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                    </div>
+                </div>
+
+                <!-- Service Item 3 -->
+                <div class="col-lg-3 col-md-6 text-center service-item animate__animated animate__fadeIn">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="fas fa-globe"></i></div>
+                        <h3 class="h4 mb-2">Ready to Publish</h3>
+                        <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                    </div>
+                </div>
+
+                <!-- Service Item 4 -->
+                <div class="col-lg-3 col-md-6 text-center service-item animate__animated animate__fadeIn">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="fas fa-heart"></i></div>
+                        <h3 class="h4 mb-2">Made with Love</h3>
+                        <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Product Section -->
+    
+
+
+    <!--contact-->
+    <div class="contact">
+        <div class="container mt-5">
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <h2 class="text-center mb-4">Contact Us</h2>
+                <form>
+                  <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        
+                <div class="mt-4">
+                  <h4>Contact Information</h4>
+                  <p><i class="fas fa-map-marker-alt"></i> 123 Street, City, Country</p>
+                  <p><i class="fas fa-envelope"></i> <a href="mailto:info@example.com">info@example.com</a></p>
+                  <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+   
+    <!--contact-->
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="row justify-content-around mb-0 pt-5 mx-4">
+            <div class="col-xl-2 col-md-4 order-xl-1 order-4 mr-xl-0 my-auto">
+                <ul class="list-unstyled mt-md-3 mt-5">
+                    <li>Social Media</li>
+                    <li class="social">
+                        <span><i class="fa fa-facebook" aria-hidden="true"></i></span>
+                        <span><i class="fa fa-instagram" aria-hidden="true"></i></span>
+                        <span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                    </li>
+                </ul>
+                <ul class="list-unstyled my-xl-4 my-md-3">
+                    <li>Copyright</li>
+                    <li>&#9400; Nutrition 2019</li>
+                </ul>
+            </div>
+            <div class="col-xl-2 col-md-3 pt-4 order-1">
+                <ul class="list-unstyled">
+                    <li class="mt-md-0 mt-4">Our Solution</li>
+                    <li>Intergrated Security </li>
+                    <li>Core Features</li>
+                    <li>Product Features</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+            <div class="col-xl-2 col-md-3 pt-4 order-2">
+                <ul class="list-unstyled">
+                    <li class="mt-md-0 mt-4">Your needs</li>
+                    <li>Intergrated Security </li>
+                    <li>Core Features</li>
+                    <li>Product Features</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+            <div class="col-xl-auto col-md-3 pt-4 order-md-3 order-sm-1">
+                <ul class="list-unstyled">
+                    <li class="mt-md-0 mt-4">Offer</li>
+                    <li>Intergrated Security </li>
+                    <li>Core Features</li>
+                    <li>Product Features</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+            <div class="col-xl-auto col-md-6 col-12 pt-4 my-sm-0 order-6">
+                <div class="form-group">
+                    <label for="email" class="mb-3"><b>Subscribe to our newsletter and Get 10% off</b></label>
+                    <input type="email" class="form-control form-control-lg" placeholder="Enter email" id="email">
+                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block my-2 Subscribe mt-4 mb-3">Subscribe</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/f3068f95b3.js" crossorigin="anonymous"></script>
+<script src="assests/js/loader.js"></script>
+<script src="assests/js/cart.js"></script>
+<script src="assests/js/modal.js"></script>
+<script src="assests/js/search.js"></script>
+<script src="assests/js/wishlist.js"></script>
+<script src="assests/js/hastag-links.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
